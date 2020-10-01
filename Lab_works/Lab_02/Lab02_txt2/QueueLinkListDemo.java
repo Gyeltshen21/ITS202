@@ -8,7 +8,7 @@ class linklist {
 		tail = null;
 		size = 0;
 	}
-	public void push(int e) {
+	public void enQueue(int e) {
 		Node newest = new Node(e, null);
 		if(size == 0) {
 			front = newest;
@@ -22,7 +22,7 @@ class linklist {
 		}
 		size = size + 1;
 	}
-	public int pop() {
+	public int deQueue() {
 		int deletedElement = front.getElement();
 		if(isEmpty()) {
 			return 1;
@@ -87,11 +87,11 @@ public class QueueLinkListDemo {
 
 	public static void main(String[] args) {
 		linklist obj = new linklist();
-		obj.push(8);
-		obj.push(4);
-		obj.push(5);
-		obj.push(6);
-		obj.pop();
+		obj.enQueue(8);
+		obj.enQueue(4);
+		obj.enQueue(5);
+		obj.enQueue(6);
+		obj.deQueue();
 		assert(obj.isEmpty() == false);
 		assert(obj.printFrontElement() == 4);
 		assert(obj.len() == 3);
