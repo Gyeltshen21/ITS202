@@ -102,6 +102,7 @@ public class ArrayList
 		assert(obj.size() == 2);
 		//System.out.println("toString " +obj.toString());
 		//System.out.println("The number of elements in the new Array is " +a);
-		System.out.println("The Size of new Array is " +obj.size());
+		//System.out.println("The Size of new Array is " +obj.size());
+		System.out.println("Testcase3 passed");
 	}
 }
