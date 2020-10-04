@@ -49,8 +49,8 @@ public class ArrayList
 	public void resize()
 	{
 		if(length == full_1over4 ) {
-			int newArray[] = new int[(capacity/2)*2];
-			for(int i = 0; i < Array.length; i++) {
+			int newArray[] = new int[capacity/2];
+			for(int i = 0; i < Array.length/2; i++) {
 				newArray[i] = Array[i];
 			}
 			Array = newArray;
@@ -92,15 +92,16 @@ public class ArrayList
 		ArrayList obj = new ArrayList();
 		obj.add(5);
 		obj.add(8);
-		obj.add(4);
+		//obj.add(4);
 		//obj.add(5);
-		obj.add(3);
+		//obj.add(3);
 //		obj.add(7);
 		obj.pop();
 		//obj.pop();
 		obj.resize();
-		System.out.println("toString " +obj.toString());
-		System.out.println("The number of elements in the new Array is " +a);
+		assert(obj.size() == 2);
+		//System.out.println("toString " +obj.toString());
+		//System.out.println("The number of elements in the new Array is " +a);
 		System.out.println("The Size of new Array is " +obj.size());
 	}
 }
