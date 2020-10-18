@@ -11,6 +11,7 @@ public class InsertionSort {
 			int element = obj1.nextInt();
 			Array[i] = element;
 		}
+		System.out.println("Unsorted Elements ");
 		for(int j : Array) {
 			System.out.print(j + " ");
 		}
@@ -20,18 +21,25 @@ public class InsertionSort {
 	}
 	public void Sort(int []Array) {
 		int n = Array.length;
+		int iterationcounts = 0;
+		int shiftcounts = 0;
 		for(int i = 1; i < n; i++) {
 			int concurrent = Array[i];
 			int j = i -1;
 			while(j >= 0 && Array[j] > concurrent) {
 				Array[j + 1] = Array[j];
 				j--;
+				iterationcounts++;
 			}
 			Array[j + 1] = concurrent;
+			shiftcounts++;
 		}
+		System.out.println("IterationCounts : " +iterationcounts);
+		System.out.println("ShifCounts : " +shiftcounts);
 	}
 	public void printSort(int [] Array) {
 		int n = Array.length;
+		System.out.println("Sorted Elements ");
 		for(int i : Array) {
 			System.out.print(i + " ");
 		}

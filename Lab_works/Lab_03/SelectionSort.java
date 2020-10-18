@@ -11,6 +11,7 @@ public class SelectionSort {
 			int element = obj1.nextInt();
 			Array[i] = element;
 		}
+		System.out.println("Unsorted Elements ");
 		for(int j : Array) {
 			System.out.print(j + " ");
 		}
@@ -20,9 +21,12 @@ public class SelectionSort {
 	}
 	public void Sort(int []Array) {
 		int n = Array.length;
+		int compcount = 0;
+		int swaps = 0;
 		for(int i = 0; i < n - 1; i++) {
 			int minValue = i;
 			for(int j = i + 1; j < n; j++) {
+				compcount++;
 				if(Array[j] < Array[minValue]) {
 					minValue = j;
 				}
@@ -30,10 +34,14 @@ public class SelectionSort {
 			int temp = Array[minValue];
 			Array[minValue] = Array[i];
 			Array[i] = temp;
+			swaps++;
 		}
+		System.out.println("Compcount : " +compcount);
+		System.out.println("Swapscount : " +swaps);
 	}
 	public void printSort(int [] Array) {
 		int n = Array.length;
+		System.out.println("Sorted Elements ");
 		for(int i : Array) {
 			System.out.print(i + " ");
 		}
