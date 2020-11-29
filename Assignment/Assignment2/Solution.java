@@ -226,35 +226,38 @@ public class Solution<Key extends Comparable<Key>, Value>  {
      *        <em>n</em>–1
      */
 
-    // Return key of rank k. 
-  //   public Key select(int k) {
-  //    	if (k < 0 || k >= size()) {  // same as when the key is null
-  //       	throw new IllegalArgumentException("calls select() with a null key");
-  //   	}
-  //   	Node curNode = root;
-		// Node parent = null;
-		// while(curNode != null){
-		// 	parent = curNode;
-		// 	int cmp = k.compareTo(parent.val);
-		// 	if(cmp > 0){
-		// 		curNode = parent.right;
-		// 	}
-		// 	//This condition is for checking floor of given key in right side
-		// 	else if(cmp < 0){
-		// 		curNode = parent.left;
-		// 		//This condition returns previous parent as floor of given key as it is less the right parent
-		// 		int cm = k.compareTo(curNode.val);
-		// 		if(cm < 0 ){
-		// 			return parent.key;
-		// 		}
-		// 		//This is for if the key is still greater then right parent
-		// 		else{
-		// 			curNode = parent.left;
-		// 		} 
-		// 	}
-		// }
-		// return parent.key;
-  //   }
+    //Return key of rank k.
+    public Key select(Key key){
+		if(isEmpty()){
+			throw new NoSuchElementException("calls floor() with empty symbol table");
+		}
+		Node curNode = root;
+		Node parent = null;
+		while(curNode != null){
+			parent = curNode;
+			int cmp = key.compareTo(parent.key);
+			if(key == null){
+				throw new IllegalArgumentException("calls floor() with a null key");
+			}
+			if(cmp > 0){
+				curNode = parent.right;
+			}
+			//This condition is for checking floor of given key in left side
+			else if(cmp < 0){
+				curNode = parent.left;
+				//This condition checks if key is greater than left parent then it returns the curNode 
+				int cm = key.compareTo(parent.key);
+				if(cm > 0 ){
+					return curNode.key;
+				}
+				//This is for if the key is still less then left parent
+				else{
+					curNode = parent.left;
+				} 
+			}
+		}
+		return parent.key;
+	}
     /**
      * Returns all keys in the symbol table in the given range,
      * as an {@code Iterable}.
@@ -315,7 +318,7 @@ public class Solution<Key extends Comparable<Key>, Value>  {
         System.out.println(theTree.min());
         System.out.println(theTree.floor("HRITHIK"));
         System.out.println(theTree.floor("HAHA"));
-        //System.out.println(theTree.select("HRITHIKH"));
+        System.out.println(theTree.select("HRITHIKH"));
         theTree.keys("ABDUL","TASHI");
         System.out.println();
         theTree.put("CHIMI",5);
